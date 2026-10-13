@@ -1265,7 +1265,8 @@ const GX = (() => {
       for (let i = 0; i < 6; i++) { const d = target[i] - this.em[i]; if (Math.abs(d) > 0.004) { this.em[i] += d * (1 - Math.exp(-dt * 8)); busy = true; } else this.em[i] = target[i]; }
       const zt = state.feature === 'halo' && this.sBase ? Math.min(1, this.H * 0.45 / (HALO_R * this.sBase)) : 1;
       if (Math.abs(this.zoom - zt) > 0.002) { this.zoom += (zt - this.zoom) * k; busy = true; } else this.zoom = zt;
-      if (state.spin) { state.az += dt * 0.1; busy = true; }
+      // 나선팔은 바깥으로 갈수록 각도가 커져 화면에서 시계 방향으로 감긴다 → 팔 끝이 뒤처지도록(끌리는 팔) 시계 반대 방향으로 돌린다
+      if (state.spin) { state.az -= dt * 0.1; busy = true; }
       if (!this.reduce && (state.feature === 'sun' || state.feature === 'sight')) busy = true;
       this.draw(now);
       if (busy) this.kick();
