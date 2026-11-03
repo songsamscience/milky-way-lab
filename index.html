@@ -593,7 +593,7 @@ circle.d-gc{fill:none;stroke:#c6a6ff;stroke-width:1.4;stroke-dasharray:3 3}
 .nick{display:flex;gap:10px;margin:0 0 12px!important;padding:11px 13px;border-radius:var(--r2);background:rgba(138,216,255,.06);border:1px solid rgba(138,216,255,.22);font-size:14.5px!important;color:var(--text)!important}
 .nick .ic{color:var(--accent);margin-top:3px}
 .nick b{display:block;font-size:11px;letter-spacing:.06em;color:var(--accent);font-weight:600}
-.size-cmp{display:flex;align-items:center;gap:8px;margin-top:4px;font-size:12.5px;color:var(--text-2)}
+.size-cmp{display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px;margin-top:4px;font-size:12.5px;color:var(--text-2)}
 .size-cmp i{display:block;height:10px;border-radius:5px;flex:none}
 .size-cmp i.moon{width:26px;background:#fff1c8;opacity:.8}
 .size-cmp i.obj{background:var(--tc);box-shadow:0 0 8px var(--tc)}
@@ -720,6 +720,12 @@ button.log-obj:hover{color:var(--accent)}
   .g-intro{grid-template-columns:1fr}
   .g-intro-art{min-height:260px}
   .sort{margin-left:0}
+}
+/* 태블릿 세로(761~860px): 로고·메뉴·채널 아이콘이 한 줄에 들어가도록 */
+@media (min-width:761px) and (max-width:860px){
+  .navbar .wrap{gap:12px}
+  .nav a{padding:0 5px}
+  .nav a::after{left:5px;right:5px}
 }
 
 /* 휴대폰 */
@@ -1665,7 +1671,7 @@ const SKY_OBJECTS = [
     fun: '망원경으로 보면 옆에 훨씬 멀리 있는 작은 성단(NGC 2158)이 함께 보여요.',
     look: '겨울밤, 쌍둥이자리의 발끝 별 근처에서 뿌연 얼룩을 찾아요.' },
   { id: 'globular', img: 'm13', name: '헤르쿨레스 구상 성단', cat: 'M13', type: '구상 성단', con: '헤르쿨레스자리', ra: 250.42, dec: 36.46, mag: 5.8, size: 20, sizeT: '20′', dpc: 6800, pc: '약 6,800 pc', ly: '약 2만 2천 광년', tool: '쌍안경',
-    nick: '헤르쿨레스자리에 있는, 북쪽 하늘에서 가장 밝은 구상 성단이에요.',
+    nick: '헤르쿨레스자리에 있는, 북쪽 하늘에서 가장 밝은 구상 성단 중 하나예요.',
     fun: '1974년 아레시보 전파 망원경이 외계 생명체에게 보내는 메시지를 이 성단 쪽으로 쏘아 보냈어요.',
     look: '헤르쿨레스자리의 사다리꼴(쐐기돌) 한쪽 변에서 뿌연 공을 찾아요.' },
   { id: 'm22', img: 'm22', name: 'M22 구상 성단', cat: 'M22', type: '구상 성단', con: '궁수자리', ra: 279.10, dec: -23.90, mag: 5.1, size: 32, sizeT: '32′', dpc: 3200, pc: '약 3,200 pc', ly: '약 1만 600광년', tool: '쌍안경',
